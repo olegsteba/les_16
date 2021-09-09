@@ -1,4 +1,4 @@
-import csv
+import csv, sqlite3
 listDB = []
 with open('db.csv', 'r', encoding='utf-8') as fin:
     data_db = csv.reader(fin, delimiter = ";")
