@@ -26,8 +26,12 @@ link = DB.cursor()
 #    'Реквизит корпорации');''')
 # DB.commit()
 
-listDB.pop(0)
-link.executemany("INSERT INTO human VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", listDB)
-DB.commit()
-t = link.execute('''SELECT * FROM human''').fetchall()
+# listDB.pop(0)
+# link.executemany("INSERT INTO human VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", listDB)
+# DB.commit()
+corporations = link.execute('''SELECT Корпорация FROM human GROUP by Корпорация''').fetchall()
+# for corp in corporations:
+#     cDB = sqlite3.connect(f'''{corp[0]}.bd''')
+#     cDB.close()    
+
 DB.close()
