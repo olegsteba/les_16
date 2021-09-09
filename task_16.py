@@ -33,15 +33,18 @@ corporations = link.execute('''SELECT Корпорация FROM human GROUP by �
 for corp in corporations:
     cDB = sqlite3.connect(f'''{corp[0]}.bd''')
     clink = cDB.cursor()
-    clink.execute('''CREATE TABLE IF NOT EXISTS piople(
-        id INT PRIMARY KEY AUTOINCREMENT,
-        fio TEXT,
-        phone TEXT);
-    ''')
-    cDB.commit()
-    pioples = link.execute('''SELECT 'ФИО сотрудника', 'Телефон сотрудника', FROM piople WHERE Корпорация = ?''', (corp[0],)).fetchall()
-    clink.executemany("INSERT INTO human VALUES(fio, phone);", listDB)
-    cDB.commit()
+    # clink.execute('''CREATE TABLE IF NOT EXISTS piople(
+    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     fio TEXT,
+    #     phone TEXT);
+    # ''')
+    # cDB.commit()
+    # pioples = link.execute('''SELECT `ФИО сотрудника`, `Телефон сотрудника` FROM human WHERE Корпорация = ?''', (corp[0],)).fetchall()
+    # print(pioples)
+    # clink.executemany("INSERT INTO piople VALUES(NULL, ?, ?);", pioples)
+    # cDB.commit()
+    qwe = clink.execute('''SELECT * FROM piople ''').fetchall()
+    print(qwe)
     cDB.close()    
 
 
