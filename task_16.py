@@ -35,3 +35,4 @@ corporations = link.execute('''SELECT Корпорация FROM human GROUP by �
 #     cDB.close()    
 
 DB.close()
+
